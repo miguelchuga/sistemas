@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<openerp>
+    
+    <data>
+        
+        <record id="generate_ventas_wizard" model="ir.ui.view">
+
+            <field name="name">Genera Libro de ventas a MS Excel</field>
+            <field name="model">libro_ventas.generate_ventas</field>
+            <field name="arch" type="xml">
+                <form string="Generate file">
+                    <field invisible="1" name="state"/>
+                    <field name="name" invisible="1"/>
+                    <group states="choose" string="Selección de Periodo">
+                        <h2>para generar el archivo</h2>
+                        <field name="period_id" required="1" options="{'no_create': True}"/>
+                    </group>
+                    <div states="choose">
+                        <p>aquí es generado el archivo : <field name="data" readonly="1" filename="name"/></p>
+                    </div>
+ 
+                    <div states="get">
+                        <h2>Generación completa</h2>
+                        <p>Click aquí para abrir : <field name="data" readonly="1" filename="name"/></p>
+                    </div>
+                    <footer states="choose">
+                        <button name="generate_file" string="Generate file" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Close" type="object"/>
+                    </footer>
+ 
+                </form>
+            </field>
+        </record>
+
+        <record id="generate_ventas_action" model="ir.actions.act_window">
+            <field name="name">Genera Libro de ventas a MS Excel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">libro_ventas.generate_ventas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            name="Libro de ventas"
+            action="generate_ventas_action"
+            id="generate_ventas_menu"
+            parent="menu_finance_legal_statement"
+            sequence="100"
+        />
+
+    </data>
+
+</openerp>

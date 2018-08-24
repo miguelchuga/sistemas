@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_account_journal_form_gt" model="ir.ui.view">
+            <field name="name">account.journal.form_gt</field>
+            <field name="model">account.journal</field>
+<!--            <field name="type">form</field> -->
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+			<field name="arch" type="xml">
+            <xpath expr="//page[@name='journal_entries']" position="before">
+                <page string="SAT Guatemala">
+                    <group col="4">
+                        <separator string="Configuración de Libros SAT para Guatemala" colspan="4"/>
+	       	            <field name="local"/>
+            	        <field name="gravado"/>
+       	        	    <field name="tipo_gasto"/>
+           	        	<field name="asiste_libro"/>
+	           	        <field name="tipo_transaccion"/>
+                	    <field name="establecimiento"/>
+       	            	<field name="imprime_libro"/>
+       	            	<field name="serie_venta"/>
+       	            	<field name="tipo_venta"/>
+       	            	<field name="retencion_iva_cliente"/>
+       	            	<field name="gface_electronico"/> 
+                    </group>
+                </page>
+                </xpath>
+			</field>
+        </record>
+
+    </data>
+</openerp>
