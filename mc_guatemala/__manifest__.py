@@ -13,7 +13,8 @@
     'website': 'http://mcsistemas.net',
     'category': 'Accounting & Finance',
     'depends': ["account",
-                "account_check_printing"],
+#                "account_check_printing"
+    ],
     'data': [
         'views/account_account_view.xml',
         'views/account_journal_view.xml',
